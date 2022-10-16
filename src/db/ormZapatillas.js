@@ -1,8 +1,25 @@
 const zapatillas = require("./zapatillas.json")
 const utils  = require("./utils")
+const { Sneaker } = require("./models/sneaker.js")
+
+
 
 const getAllZapatillas = () => {
-    return zapatillas;
+
+  /* CON DB */
+
+  require('./connection.js')
+
+  Sneaker.find({}).then(
+    zapatillas => {
+      console.log(zapatillas)
+       return zapatillas
+    }
+  )
+
+
+  /* SIN DB */
+    /* return zapatillas; */
 }
 
 const crearZapatilla = (zapaNueva) => {
