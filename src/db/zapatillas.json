@@ -1,82 +1,82 @@
 [
     {
-        "id":1,
-        "nombre":"Air Max 97 SE",
-        "marca":"NIKE",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$45.000",
-        "stock":"14"
+        "id": 1,
+        "nombre": "Air Max 97 SE",
+        "marca": "NIKE",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$45.000",
+        "stock": "14"
     },
     {
-        "id":2,
-        "nombre":"Huarache Run",
-        "marca":"NIKE",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$35.000",
-        "stock":"4"
+        "id": 2,
+        "nombre": "Huarache Run",
+        "marca": "NIKE",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$35.000",
+        "stock": "4"
     },
     {
-        "id":3,
-        "nombre":"Air Max 95",
-        "marca":"NIKE",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$50.000",
-        "stock":"10"
+        "id": 3,
+        "nombre": "Air Max 95",
+        "marca": "NIKE",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$50.000",
+        "stock": "10"
     },
     {
-        "id":4,
-        "nombre":"Vision Low",
-        "marca":"NIKE",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$21.000",
-        "stock":"16"
+        "id": 4,
+        "nombre": "Vision Low",
+        "marca": "NIKE",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$21.000",
+        "stock": "16"
     },
     {
-        "id":5,
-        "nombre":"Pharrel Williams HU",
-        "marca":"Adidas",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$30.000",
-        "stock":"1"
+        "id": 5,
+        "nombre": "Pharrel Williams HU",
+        "marca": "Adidas",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$30.000",
+        "stock": "1"
     },
     {
-        "id":6,
-        "nombre":"Styling",
-        "marca":"FILA",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$9.490",
-        "stock":"24"
+        "id": 6,
+        "nombre": "Styling",
+        "marca": "FILA",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$9.490",
+        "stock": "24"
     },
     {
-        "id":7,
-        "nombre":"Ozweego",
-        "marca":"Adidas",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$35.999",
-        "stock":"5"
+        "id": 7,
+        "nombre": "Ozweego",
+        "marca": "Adidas",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$35.999",
+        "stock": "5"
     },
     {
-        "id":8,
-        "nombre":"Superstar",
-        "marca":"Adidas",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$31.999",
-        "stock":"12"
+        "id": 8,
+        "nombre": "Superstar",
+        "marca": "Adidas",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$31.999",
+        "stock": "12"
     },
     {
-        "id":9,
-        "nombre":"Air Max 90 SE",
-        "marca":"NIKE",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$40.999",
-        "stock":"17"
+        "id": 9,
+        "nombre": "Air Max 90 SE",
+        "marca": "NIKE",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$40.999",
+        "stock": "17"
     },
     {
-        "id":10,
-        "nombre":"Ozelle Cloudfam",
-        "marca":"Adidas",
-        "img":"http://localhost:5000/public/img/filaStyling.jpg",
-        "precio":"$22.999",
-        "stock":"27"
+        "id": 10,
+        "nombre": "Ozelle Cloudfam",
+        "marca": "Adidas",
+        "img": "/img/filaStyling.jpg",
+        "precio": "$22.999",
+        "stock": "27"
     }
 ]
