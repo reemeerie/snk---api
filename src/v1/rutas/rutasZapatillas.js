@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const controladorZapatillas = require("../../controladores/controladorZapatillas")
+const express = require('express')
+const router = express.Router()
+const controladorZapatillas = require('../../controladores/controladorZapatillas')
 
 router.get('/', controladorZapatillas.getAllZapas)
 
@@ -12,5 +12,4 @@ router.patch('/:id', controladorZapatillas.editoUnaZapa)
 
 router.delete('/:id', controladorZapatillas.borroUnaZapa)
 
-
-module.exports = router;
+module.exports = router

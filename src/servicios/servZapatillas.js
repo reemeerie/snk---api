@@ -5,23 +5,24 @@ const getAllZapas = async () => {
   return allZapatillas
 }
 
-const getUnaZapa = (id) => {
-  const zapa = ormZapatillas.getUnaZapa(id)
+const getUnaZapa = async (id) => {
+  const zapa = await ormZapatillas.getUnaZapa(id)
   return zapa
 }
 
-const creoUnaZapa = (nuevaZapa) => {
-  const zapaCreada = ormZapatillas.crearZapatilla(nuevaZapa)
+const creoUnaZapa = async (nuevaZapa) => {
+  const zapaCreada = await ormZapatillas.crearZapatilla(nuevaZapa)
   return zapaCreada
 }
 
-const editoUnaZapa = (id, changes) => {
-  const zapaEditada = ormZapatillas.editoUnaZapa(id, changes)
+const editoUnaZapa = async (id, changes) => {
+  const zapaEditada = await ormZapatillas.editoUnaZapa(id, changes)
   return zapaEditada
 }
 
-const borroUnaZapa = (id) => {
-  ormZapatillas.borroUnaZapa(id)
+const borroUnaZapa = async (id) => {
+  const zapaBorrada = await ormZapatillas.borroUnaZapa(id)
+  return zapaBorrada
 }
 
 module.exports = {
