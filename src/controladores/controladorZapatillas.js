@@ -9,12 +9,12 @@ const getAllZapas = async (req, res) => {
   }
 }
 
-const getUnaZapa = (req, res) => {
+const getUnaZapa = async (req, res) => {
   const { params: { id } } = req
   if (!id) {
     return
   }
-  const zapa = servZapatillas.getUnaZapa(id)
+  const zapa = await servZapatillas.getUnaZapa(id)
   res.send({ status: 'OK', data: zapa })
 }
 
@@ -37,22 +37,22 @@ const creoUnaZapa = async (req, res) => {
   res.status(201).send({ status: 'OK', data: zapaCreada })
 }
 
-const editoUnaZapa = (req, res) => {
+const editoUnaZapa = async (req, res) => {
   const { body, params: { id } } = req
   if (!id) {
     return
   }
-  const zapaEditada = servZapatillas.editoUnaZapa(id, body)
+  const zapaEditada = await servZapatillas.editoUnaZapa(id, body)
   res.send({ status: 'OK', data: zapaEditada })
 }
 
-const borroUnaZapa = (req, res) => {
+const borroUnaZapa = async (req, res) => {
   const { params: { id } } = req
   if (!id) {
     return
   }
-  servZapatillas.borroUnaZapa(id)
-  res.status(204).send({ status: 'OK' })
+  const zapaBorrada = await servZapatillas.borroUnaZapa(id)
+  res.status(204).send({ status: 'OK', data: zapaBorrada })
 }
 
 module.exports = {
