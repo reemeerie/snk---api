@@ -6,8 +6,8 @@ const sneakerSchema = new Schema({
   marca: String,
   img: String,
   precio: String,
-  Stock: String
-})
+  stock: String
+}, { collection: 'sneakers' })
 
 const Sneaker = model('Sneaker', sneakerSchema)
 

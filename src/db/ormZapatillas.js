@@ -1,10 +1,6 @@
-/* const zapatillas = require('./zapatillas.json')
-const utils = require('./utils') */
 const { Sneaker } = require('./models/sneaker.js')
 
 const getAllZapatillas = async () => {
-  /* CON DB */
-
   require('./connection.js')
 
   const zapatilla = await Sneaker.find({})
@@ -12,52 +8,34 @@ const getAllZapatillas = async () => {
   console.log(zapatilla)
 
   return zapatilla
-
-  /* SIN DB */
-
-  /* return zapatillas; */
 }
 
 const crearZapatilla = async (zapaNueva) => {
-  /* CON DB */
-
-  const { id, nombre, marca, img, precio, stock } = zapaNueva
-
   require('./connection.js')
+  const zapatillaExiste = await Sneaker.find({ id: zapaNueva.id })
 
-  const zapatillaExiste = await Sneaker.find({ id })
-
-  if (zapatillaExiste) {
-    return
+  if (zapatillaExiste.length > 0) {
+    console.log('YA EXISTE LA ZAPA BRO')
+    return zapatillaExiste
   }
 
   const zapaCreada = new Sneaker({
-    id,
-    nombre,
-    marca,
-    img,
-    precio,
-    stock
+    id: zapaNueva.id,
+    nombre: zapaNueva.nombre,
+    marca: zapaNueva.marca,
+    img: zapaNueva.img,
+    precio: zapaNueva.precio,
+    stock: zapaNueva.stock
   })
+
+  console.log(zapaCreada)
 
   const zapatillaCreada = await zapaCreada.save()
 
   return zapatillaCreada
-
-  /* SIN DB */
-
-  /* const isAlreadyAdded = zapatillas.find((zapa) => zapa.nombre === zapaNueva.nombre)
-  if (isAlreadyAdded) {
-    return
-  }
-  zapatillas.push(zapaNueva)
-  utils.saveToDatabase(zapatillas)
-  return zapaNueva */
 }
 
 const getUnaZapa = async (zapaId) => {
-  /* Con DB */
-
   require('./connection.js')
 
   const zapatilla = await Sneaker.find({ id: zapaId })
@@ -65,66 +43,36 @@ const getUnaZapa = async (zapaId) => {
   console.log(zapatilla)
 
   return zapatilla
-
-  /* Sin DB */
-
-  /* const zapatilla = zapatillas.find((zapa) => zapa.id === Number(zapaId))
-  if (!zapatilla) {
-    return
-  }
-  return zapatilla */
 }
 
 const editoUnaZapa = async (zapaId, changes) => {
-  /* CON DB */
-
   require('./connection.js')
 
   const newZapa = { new: true }
 
-  const zapatilla = await Sneaker.findByIdAndUpdate({ id: zapaId, updates: changes, options: newZapa })
+  const zapatilla = await Sneaker.findOneAndUpdate({ id: zapaId }, changes, newZapa)
 
-  console.log(zapatilla)
-
-  return zapatilla
-
-  /* SIN DB */
-
-  /* const indexAActualizar = zapatillas.findIndex(
-    (zapa) => zapa.id === id
-  )
-  if (indexAActualizar === -1) {
-    return
+  if (zapatilla === null) {
+    console.log('No existe esa zapatilla')
+    return 'No existe esa zapatilla'
+  } else {
+    console.log(zapatilla)
+    return zapatilla
   }
-  const zapaEditada = {
-    ...zapatillas[indexAActualizar],
-    ...changes
-  }
-  zapatillas[indexAActualizar] = zapaEditada
-  utils.saveToDatabase(zapatillas)
-  return zapaEditada */
 }
 
 const borroUnaZapa = async (zapaId) => {
-  /* CON DB */
-
   require('./connection.js')
 
-  const zapatilla = await Sneaker.findByIdAndDelete({ id: zapaId })
+  const zapatilla = await Sneaker.find({ id: zapaId }).deleteOne()
 
-  console.log(zapatilla)
-
-  return zapatilla
-  /* SIN DB */
-
-  /*   const indexABorrar = zapatillas.findIndex(
-      (zapa) => zapa.id === id
-    )
-    if (indexABorrar === -1) {
-      return
-    }
-    zapatillas.splice(indexABorrar, 1)
-    utils.saveToDatabase(zapatillas) */
+  if (zapatilla.deletedCount > 0) {
+    console.log('Zapatilla borrada')
+    return { ...zapatilla, info: `Zapa con id ${zapaId} borrada` }
+  } else {
+    console.log('No existe esa zapatilla')
+    return 'No existe esa zapatilla'
+  }
 }
 
 module.exports = {
