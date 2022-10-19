@@ -3,11 +3,11 @@ const { Sneaker } = require('./models/sneaker.js')
 const getAllZapatillas = async () => {
   require('./connection.js')
 
-  const zapatilla = await Sneaker.find({})
+  const zapatillas = await Sneaker.find({})
 
-  console.log(zapatilla)
+  console.log(zapatillas)
 
-  return zapatilla
+  return zapatillas
 }
 
 const crearZapatilla = async (zapaNueva) => {

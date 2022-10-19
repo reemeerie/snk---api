@@ -9,6 +9,12 @@ const sneakerSchema = new Schema({
   stock: String
 }, { collection: 'sneakers' })
 
+sneakerSchema.set('toJSON', {
+  transform: (document, returnedDocument) => {
+    delete returnedDocument.__v
+  }
+})
+
 const Sneaker = model('Sneaker', sneakerSchema)
 
 module.exports = {
