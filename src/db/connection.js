@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const connectionString = 'mongodb+srv://thomasReemeerie:yerbamate41@thesneakersstore.7n0a7ep.mongodb.net/snk-api?retryWrites=true&w=majority'
+const connectionString = process.env.MONGO_DB_URL
 
 mongoose.connect(connectionString)
   .then(() => {
