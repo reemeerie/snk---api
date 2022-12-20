@@ -7,9 +7,10 @@ const userSchema = new Schema({
   password: String,
   repeatedPassword: String,
   email: String,
-  buysId: [{
+  admin: Boolean,
+  ordersId: [{
     type: Number,
-    ref: 'Buy'
+    ref: 'Order'
   }]
 }, { collection: 'users' })
 

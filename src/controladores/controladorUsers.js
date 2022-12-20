@@ -31,7 +31,6 @@ const creoUnUser = async (req, res) => {
     res.status(404).send({ warning: 'Passwords dont match' })
     return
   }
-
   const nuevoUser = {
     id: request.id,
     nombre: request.nombre,
@@ -39,7 +38,7 @@ const creoUnUser = async (req, res) => {
     password: request.password,
     repeatedPassword: request.repeatedPassword,
     email: request.email,
-    buysId: []
+    ordersId: []
   }
   const userCreado = await servUsers.creoUnUser(nuevoUser)
   res.status(201).send({ status: 'OK', data: userCreado })

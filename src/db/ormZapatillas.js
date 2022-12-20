@@ -5,8 +5,6 @@ const getAllZapatillas = async () => {
 
   const zapatillas = await Sneaker.find({})
 
-  console.log(zapatillas)
-
   return zapatillas
 }
 
@@ -15,7 +13,7 @@ const crearZapatilla = async (zapaNueva) => {
   const zapatillaExiste = await Sneaker.find({ id: zapaNueva.id })
 
   if (zapatillaExiste.length > 0) {
-    console.log('YA EXISTE LA ZAPA BRO')
+    console.log('Zapatilla existente')
     return zapatillaExiste
   }
 
@@ -28,8 +26,6 @@ const crearZapatilla = async (zapaNueva) => {
     stock: zapaNueva.stock
   })
 
-  console.log(zapaCreada)
-
   const zapatillaCreada = await zapaCreada.save()
 
   return zapatillaCreada
@@ -39,8 +35,6 @@ const getUnaZapa = async (zapaId) => {
   require('./connection.js')
 
   const zapatilla = await Sneaker.find({ id: zapaId })
-
-  console.log(zapatilla)
 
   return zapatilla
 }
@@ -56,7 +50,6 @@ const editoUnaZapa = async (zapaId, changes) => {
     console.log('No existe esa zapatilla')
     return 'No existe esa zapatilla'
   } else {
-    console.log(zapatilla)
     return zapatilla
   }
 }
