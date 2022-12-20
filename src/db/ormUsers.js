@@ -1,4 +1,3 @@
-/* A HACER LA MAGIA PARA LOS USERS NENE */
 const { User } = require('./models/user.js')
 
 const bcrypt = require('bcrypt')
@@ -7,8 +6,6 @@ const getAllUsers = async () => {
   require('./connection.js')
 
   const users = await User.find({})
-
-  console.log(users)
 
   return users
 }
@@ -30,10 +27,9 @@ const crearUser = async (userNuevo) => {
     apellido: userNuevo.apellido,
     password: passwordHasheada,
     email: userNuevo.email,
-    buysId: userNuevo.buysId
+    ordersId: userNuevo.ordersId,
+    admin: false
   })
-
-  console.log(userACrear)
 
   const usuarioCreado = await userACrear.save()
 
@@ -44,8 +40,6 @@ const getUnUser = async (userId) => {
   require('./connection.js')
 
   const user = await User.find({ id: userId })
-
-  console.log(user)
 
   return user
 }
@@ -61,7 +55,6 @@ const editoUnUser = async (userId, changes) => {
     console.log('No existe ese user')
     return 'No existe ese user'
   } else {
-    console.log(user)
     return user
   }
 }
