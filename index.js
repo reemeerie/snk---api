@@ -12,7 +12,7 @@ const ordersRouterv1 = require('./v1/rutas/rutaOrders')
 app.use(cors())
 app.use(express.json())
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   return res.json({
     message: 'working v2'
   })
