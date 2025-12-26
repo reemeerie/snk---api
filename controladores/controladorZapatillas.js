@@ -10,19 +10,24 @@ const getAllZapas = async (req, res) => {
 }
 
 const getUnaZapa = async (req, res) => {
+  /* desestructuro id del request object */
   const { params: { id } } = req
   const newZapaId = Number(id)
+
+  /* Valido que sea un id valido */
   if (isNaN(newZapaId)) {
     res.status(404).send({ warning: 'Tiene que ser un numero' })
     return
   }
+  /* falta try catch */
   const zapa = await servZapatillas.getUnaZapa(id)
-  res.send({ status: 'OK', data: zapa })
+  res.json({ status: 'OK', data: zapa })
 }
 
 const creoUnaZapa = async (req, res) => {
   const request = req.body
 
+  /* valido campos obligatorios */
   if (!request.id || !request.nombre || !request.marca || !request.img || !request.precio || !request.stock) {
     res.status(404).send({ warning: 'Faltan campos obligatorios' })
     return
@@ -36,11 +41,14 @@ const creoUnaZapa = async (req, res) => {
     precio: request.precio,
     stock: request.stock
   }
+
+  /* delego en service */
   const zapaCreada = await servZapatillas.creoUnaZapa(nuevaZapa)
   res.status(201).send({ status: 'OK', data: zapaCreada })
 }
 
 const editoUnaZapa = async (req, res) => {
+  /* desestructuro los cambios y el id del request object */
   const changes = req.body
   const zapaId = req.params.id
 

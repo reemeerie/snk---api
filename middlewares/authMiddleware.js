@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 const isAuthenticated = (req, res, next) => {
+  /* este middleware se usa para realizar acciones en el servidor solo si el usuario es administrador */
   let admin = null
 
   const authorization = req.get('authorization')

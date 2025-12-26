@@ -16,6 +16,7 @@ const getUnUser = async (req, res) => {
     res.status(404).send({ warning: 'Tiene que ser un numero' })
     return
   }
+  /* falta try catch en todos lados */
   const user = await servUsers.getUnUser(id)
   res.send({ status: 'OK', data: user })
 }

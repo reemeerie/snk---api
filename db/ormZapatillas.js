@@ -41,7 +41,8 @@ const getUnaZapa = async (zapaId) => {
 
 const editoUnaZapa = async (zapaId, changes) => {
   require('./connection.js')
-
+  
+  /* devuelve el documento actualizado, no el anterior, por defecto devuelve el anterior */
   const newZapa = { new: true }
 
   const zapatilla = await Sneaker.findOneAndUpdate({ id: zapaId }, changes, newZapa)

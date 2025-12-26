@@ -16,9 +16,11 @@ const crearUser = async (userNuevo) => {
   const userExiste = await User.find({ id: userNuevo.id })
 
   if (userExiste.length > 0) {
-    console.log('YA EXISTE EL USER BRO')
+    console.log('Ya existe ese usuario')
     return userExiste
   }
+
+  /* se usa bcrypt para hashear las contraseñas de los usuarios (seguridad) */
   const passwordHasheada = await bcrypt.hash(userNuevo.password, 10)
 
   const userACrear = new User({
